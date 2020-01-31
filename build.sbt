@@ -43,6 +43,10 @@ lazy val macroProjectSettings = Seq(
   libraryDependencies += "org.scala-lang" % "scala-reflect" % Version.scala
 )
 
+// Custom SBT release process
+releaseProcess := SbtReleaseSteps.steps
+releaseIgnoreUntrackedFiles := true
+
 lazy val baseSettings = Seq(
   scalacOptions in (Compile, console) := compilerOptions,
   scalacOptions in (Compile, test) := compilerOptions,
