@@ -58,7 +58,8 @@ lazy val baseSettings = Seq(
 
 lazy val publishSettings = Seq(
   licenses += ("Apache-2.0", url("https://opensource.org/licenses/Apache-2.0")),
-  bintrayOrganization := Some("tabmo")
+  publishTo := Some("Tabmo Public MyGet" at "https://www.myget.org/F/tabmo-public/maven/"),
+  credentials += Credentials(Path.userHome / ".sbt" / ".credentials-myget") // See https://www.scala-sbt.org/1.x/docs/Publishing.html#Credentials and use the API keys from MyGet
 )
 
 lazy val allSettings = buildSettings ++ baseSettings ++ publishSettings
